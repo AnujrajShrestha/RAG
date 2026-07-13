@@ -50,5 +50,6 @@ streamlit
 
 tqdm
 requests
-pymupdf
+pypdf
 arxiv
+streamlit
