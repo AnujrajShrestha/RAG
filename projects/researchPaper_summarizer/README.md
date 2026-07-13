@@ -197,4 +197,4 @@ This project is licensed under the MIT License.
 
 ## 👨‍💻 Author
 
-Developed as a **Generative AI & RAG** project using **Streamlit**, **LangChain**, **Mistral AI**, and **ChromaDB**.
+Anujraj Shrestha

@@ -306,7 +306,7 @@ pypdf
 
 ## Author
 
-**Anuj**
+Anujraj Shrestha
 
 Learning **Retrieval-Augmented Generation (RAG)**, **LangChain**, **LLMs**, and **AI Application Development** through hands-on projects.
 

@@ -1,0 +1,185 @@
+# Name: Anuj shrestha
+
+📍 Butwal, Nepal
+📧 [your.email@example.com](mailto:your.email@example.com) | 📱 +977-98XXXXXXXX
+🔗 GitHub: https://github.com/AnujrajShrestha/
+🔗 LinkedIn: https://linkedin.com/in/yourusername
+🔗 Portfolio: https://yourportfolio.com
+
+---
+
+## PROFESSIONAL SUMMARY
+
+Motivated and detail-oriented aspiring Software Developer with hands-on experience in Python, Artificial Intelligence, Machine Learning, Retrieval-Augmented Generation (RAG), FastAPI, React, and modern web technologies. Passionate about building AI-powered applications, backend systems, and scalable web solutions. Strong problem-solving skills with experience developing end-to-end projects using LangChain, ChromaDB, Streamlit, and modern frontend technologies.
+
+---
+
+## TECHNICAL SKILLS
+
+### Programming Languages
+
+* Python
+* JavaScript
+* TypeScript
+* HTML5
+* CSS3
+* C
+
+### AI & Machine Learning
+
+* Machine Learning
+* Scikit-learn
+* Pandas
+* NumPy
+* Matplotlib
+* Data Visualization
+* Natural Language Processing (NLP)
+* TF-IDF
+* Vector Embeddings
+
+### Generative AI
+
+* Retrieval-Augmented Generation (RAG)
+* LangChain
+* ChromaDB
+* Mistral AI
+* Prompt Engineering
+* Document Processing
+* Vector Databases
+
+### Backend
+
+* FastAPI
+* Flask
+* REST APIs
+* Python Virtual Environments
+
+### Frontend
+
+* React
+* Vite
+* Tailwind CSS
+* GSAP
+* Framer Motion
+* Responsive Web Design
+
+### Databases
+
+* ChromaDB
+* SQLite
+* Basic MongoDB
+
+### Tools
+
+* Git
+* GitHub
+* VS Code
+* Streamlit
+* Jupyter Notebook
+* Postman
+
+---
+
+## PROJECTS
+
+### AI Research Paper Summarizer
+
+**Python | LangChain | Streamlit | ChromaDB | Mistral AI**
+
+* Built an AI-powered application that summarizes uploaded research papers.
+* Implemented PDF document loading and intelligent text chunking.
+* Created vector embeddings for semantic search.
+* Generated concise summaries using Retrieval-Augmented Generation (RAG).
+* Developed an interactive Streamlit interface.
+
+---
+
+### Company Policy RAG Assistant
+
+**Python | LangChain | ChromaDB | Streamlit | Mistral AI**
+
+* Developed an intelligent chatbot capable of answering questions from company policy documents.
+* Implemented semantic document retrieval using vector embeddings.
+* Built a complete RAG pipeline including document ingestion, indexing, retrieval, and generation.
+* Improved answer relevance through prompt engineering.
+
+---
+
+### Spam Detection System
+
+**Python | Scikit-learn | NLP**
+
+* Built a machine learning model to classify spam and legitimate messages.
+* Applied text preprocessing, TF-IDF vectorization, and feature engineering.
+* Trained multiple machine learning models and evaluated performance.
+* Implemented ensemble learning techniques for improved accuracy.
+
+---
+
+### House Price Prediction
+
+**Python | Scikit-learn**
+
+* Built regression models to predict housing prices.
+* Compared Random Forest, Gradient Boosting, AdaBoost, and Linear Regression.
+* Performed preprocessing, feature engineering, and hyperparameter tuning.
+* Evaluated models using R² Score and Mean Squared Error.
+
+---
+
+### Portfolio Website
+
+**React | JavaScript | Tailwind CSS | GSAP**
+
+* Designed and developed a responsive personal portfolio website.
+* Implemented smooth scrolling animations using GSAP.
+* Added dark mode support and interactive UI components.
+* Optimized the website for desktop and mobile devices.
+
+---
+
+## EDUCATION
+
+**+2 Management (Computer Science & Mathematics)**
+
+Nepal
+
+(Expected Completion / Graduation Year)
+
+---
+
+## CERTIFICATIONS
+
+* Machine Learning Fundamentals
+* Python Programming
+* Generative AI & RAG (Self Learning)
+* FastAPI Development
+
+(Add official certifications if available.)
+
+---
+
+## ACHIEVEMENTS
+
+* Developed multiple end-to-end AI applications using Retrieval-Augmented Generation (RAG).
+* Built full-stack applications integrating AI models with modern web technologies.
+* Continuously learning advanced AI engineering, backend development, and LLM application development.
+
+---
+
+## SOFT SKILLS
+
+* Problem Solving
+* Communication
+* Teamwork
+* Adaptability
+* Analytical Thinking
+* Continuous Learning
+* Time Management
+
+---
+
+## LANGUAGES
+
+* English
+* Nepali

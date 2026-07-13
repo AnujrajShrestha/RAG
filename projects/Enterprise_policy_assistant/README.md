@@ -188,7 +188,7 @@ When a user asks a question:
 
 ## 👨‍💻 Author
 
-**Anuj**
+Anujraj Shrestha
 
 A GenAI and Python developer exploring Retrieval-Augmented Generation (RAG), LangChain, and Large Language Models to build practical AI applications.
 
