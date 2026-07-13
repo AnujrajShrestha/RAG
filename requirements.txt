@@ -51,3 +51,4 @@ streamlit
 tqdm
 requests
 pymupdf
+arxiv
