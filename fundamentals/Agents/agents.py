@@ -5,7 +5,6 @@ from langchain_core.messages import AIMessage,HumanMessage,ToolMessage
 from tavily import TavilyClient
 from langchain.agents import create_agent
 from langchain.agents.middleware import wrap_tool_call
-
 import os
 import requests
 from rich import print
@@ -117,6 +116,21 @@ llm= ChatMistralAI(model="mistral-large-latest")
 #             print("\n"+ "="*50+ "\n")
 #             break
 
+#hitory message
+store= []
+
+def store_messages(role,inp):
+    if role.lower()== 'user':
+        store.append({
+            'role':role,
+            'content': inp
+        })
+    elif role.lower()== 'assistant':
+        store.append({
+            'role': role,
+            'content': inp
+        })
+
 @wrap_tool_call
 def human_approval(request,handler):
     """Ask for human approval before every tool call."""
@@ -134,16 +148,19 @@ agent= create_agent(
     llm,
     tools= [get_weather,get_news],
     system_prompt="You are a helpful city assistant.",
-    middleware= [human_approval]
+    middleware= [human_approval],
 )
 
 print("City Agent | Type exit to quit") 
 
 while True:       
     user_input= input("You: ")
+    store_messages('user',user_input)
     if user_input.lower() =="exit":
         break
     result= agent.invoke({
-        "messages": [{'role': 'user','content': user_input}]
+        "messages":store
     })
+    
+    store_messages('assistant',result['messages'][-1].content)
     print(f"Bot: {result['messages'][-1].content}")
