@@ -54,3 +54,4 @@ pypdf
 arxiv
 streamlit
 chardet
+tavily
