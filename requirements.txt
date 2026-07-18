@@ -55,3 +55,11 @@ arxiv
 streamlit
 chardet
 tavily
+tavily-python
+rich
+requests
+aiohttp
+tenacity
+orjson
+pydantic
+html5lib
