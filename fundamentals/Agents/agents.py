@@ -3,6 +3,8 @@ from langchain_mistralai import ChatMistralAI
 from langchain.tools import tool
 from langchain_core.messages import AIMessage,HumanMessage,ToolMessage
 from tavily import TavilyClient
+from langchain.agents import create_agent
+from langchain.agents.middleware import wrap_tool_call
 
 import os
 import requests
@@ -67,52 +69,81 @@ def get_news(city: str) -> str:
 
 llm= ChatMistralAI(model="mistral-large-latest")
 
-tools={
-    "get_weather": get_weather,
-    "get_news": get_news
-}
+# tools={
+#     "get_weather": get_weather,
+#     "get_news": get_news
+# }
 
-llm_with_tool= llm.bind_tools([get_weather,get_news])
+# llm_with_tool= llm.bind_tools([get_weather,get_news])
 
-#Agent loop
-messages= []
-print("City intelligence system")
-print("type Exit to quit")
+# #Agent loop
+# messages= []
+# print("City intelligence system")
+# print("type Exit to quit")
 
-while True:
-    user_input= input("You: ")
-    if user_input.lower() == "exit":
-        break
-    messages.append(HumanMessage(content= user_input))
+# while True:
+#     user_input= input("You: ")
+#     if user_input.lower() == "exit":
+#         break
+#     messages.append(HumanMessage(content= user_input))
     
-    while True:
-        result= llm_with_tool.invoke(messages)
+#     while True:
+#         result= llm_with_tool.invoke(messages)
         
-        messages.append(result)
+#         messages.append(result)
         
-        #if tool is required
-        if result.tool_calls:
-            for tool_call in result.tool_calls:
-                tool_name= tool_call['name']
-                #human in the loop
-                confirm= input(f"Agent wants to call {tool_name} Approve (yes/no): ")
+#         #if tool is required
+#         if result.tool_calls:
+#             for tool_call in result.tool_calls:
+#                 tool_name= tool_call['name']
+#                 #human in the loop
+#                 confirm= input(f"Agent wants to call {tool_name} Approve (yes/no): ")
                 
-                if confirm.lower() == "no":
-                    print("Tool call deniend and I cannot get the latest information")
+#                 if confirm.lower() == "no":
+#                     print("Tool call deniend and I cannot get the latest information")
                 
-                #execute tool
-                tool_result= tools[tool_name].invoke(tool_call)
+#                 #execute tool
+#                 tool_result= tools[tool_name].invoke(tool_call)
                 
-                messages.append(ToolMessage(
-                    content=tool_result,
-                    tool_call_id= tool_call['id']
-                ))
-            continue
+#                 messages.append(ToolMessage(
+#                     content=tool_result,
+#                     tool_call_id= tool_call['id']
+#                 ))
+#             continue
         
-        else:
-            print("\n Final answer: \n")
-            print(result.content)
-            print("\n"+ "="*50+ "\n")
-            break
-                
-        
+#         else:
+#             print("\n Final answer: \n")
+#             print(result.content)
+#             print("\n"+ "="*50+ "\n")
+#             break
+
+@wrap_tool_call
+def human_approval(request,handler):
+    """Ask for human approval before every tool call."""
+    tool_name= request.tool_call['name']
+    confirm= input(f"Agent want to call '{tool_name}.' Approve? (yes/no): ")
+    
+    if confirm.lower() == "no":
+        return ToolMessage(
+            content="Tool call denied by user.",
+            tool_call_id= request.tool_call['id']
+        )
+    return handler(request)
+
+agent= create_agent(
+    llm,
+    tools= [get_weather,get_news],
+    system_prompt="You are a helpful city assistant.",
+    middleware= [human_approval]
+)
+
+print("City Agent | Type exit to quit") 
+
+while True:       
+    user_input= input("You: ")
+    if user_input.lower() =="exit":
+        break
+    result= agent.invoke({
+        "messages": [{'role': 'user','content': user_input}]
+    })
+    print(f"Bot: {result['messages'][-1].content}")
