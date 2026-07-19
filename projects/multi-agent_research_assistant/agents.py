@@ -1,6 +1,6 @@
 from dotenv import load_dotenv
 from langchain.agents import create_agent
-from langchain_mistralai import ChatMistralAI
+from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from tools import wed_search,scrape_url
@@ -9,7 +9,11 @@ from rich import print
 
 load_dotenv()
 
-llm= ChatMistralAI(model='mistral-large-latest',temperature=0)
+llm= ChatGroq(
+      model="llama-3.3-70b-versatile",
+    temperature=0,
+    max_tokens=None,
+)
 
 def build_search_agent():
     return create_agent(
